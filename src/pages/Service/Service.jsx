@@ -1,7 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import LeftSideNav from "../shared/LeftSideNav/LeftSideNav";
-import Navbar from "../shared/Navbar/Navbar";
-import Footer from "../shared/Footer/Footer";
+
 
 const Service = () => {
 
@@ -13,10 +12,10 @@ const Service = () => {
 
 
 
-    console.log(id);
+    // console.log(id);
     // const job = Details.find(job => job.id === idInt)
     const detailService = Details.find(detailService => detailService.id === id)
-    console.log(detailService);
+    // console.log(detailService);
     // console.log(job)
 
     return (
