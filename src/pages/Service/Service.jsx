@@ -20,7 +20,7 @@ const Service = () => {
 
     return (
         <div>
-            
+           
             <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6">
                 <div className="col-span-1 mt-0  rounded-md ">
 
