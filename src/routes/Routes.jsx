@@ -5,6 +5,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Service from "../pages/Service/Service";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                element: <Service></Service>,
+                element: <PrivateRoute><Service></Service></PrivateRoute>,
                 loader: () => fetch('../../public/service.json')
             },
             {
