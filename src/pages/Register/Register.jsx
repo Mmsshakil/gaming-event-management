@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 
 const Register = () => {
 
-    const { signIn } = useContext(AuthContext);
+    
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location);

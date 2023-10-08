@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Service from "../pages/Service/Service";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../pages/Error/Error";
 
 
 
@@ -13,16 +14,17 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <Error></Error> ,
         children: [
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('../../public/service.json')
+                loader: () => fetch('./service.json')
             },
             {
                 path: '/service/:id',
                 element: <PrivateRoute><Service></Service></PrivateRoute>,
-                loader: () => fetch('../../public/service.json')
+                loader: () => fetch('./service.json')
             },
             {
                 path: '/login',

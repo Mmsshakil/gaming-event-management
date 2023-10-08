@@ -1,9 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import Header from "../shared/Header/Header";
 import LeftSideNav from "../shared/LeftSideNav/LeftSideNav";
-import Navbar from "../shared/Navbar/Navbar";
 import ServiceCard from "./ServiceCard";
-import Footer from "../shared/Footer/Footer";
+
 
 const Home = () => {
 
@@ -14,9 +13,9 @@ const Home = () => {
         <div>
 
             <Header></Header>
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6">
+            <div className="grid grid- grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6">
                 <div className="col-span-1 mt-0  rounded-md ">
-                    
+
                     <LeftSideNav></LeftSideNav>
                 </div>
                 {/* services */}
@@ -29,7 +28,40 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            
+            {/* extra part */}
+            <div className=" border rounded-md mx-auto py-14 mt-10">
+                <h2 className="text-center text-xl font-semibold text-white">Do you have any <span className="text-emerald-500 font-bold">Question</span> ?</h2>
+                <form className="w-2/3 mx-auto">
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Enter Your Name</span>
+                        </label>
+                        <input type="text" name="email" placeholder="Name" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Enter Your Email</span>
+                        </label>
+                        <input type="text" name="email" placeholder="Email" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">What is your Question ?</span>
+                        </label>
+                        <textarea className="p-5 bg-transparent border rounded-lg"
+                            name="postContent"
+                            placeholder="Type here . . . . "
+                            rows={3}
+                            cols={40}
+                        />
+
+                    </div>
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
     );
 };
