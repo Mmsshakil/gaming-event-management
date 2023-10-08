@@ -9,7 +9,7 @@ const ServiceCard = ({ service }) => {
         AOS.init({duration: "1000"})
     },[])
 
-    const { img, title, details, id } = service;
+    const { img, title, details, id, price } = service;
 
     return (
         <div data-aos="fade-up" className="card card-compact w-96 bg-base-100 shadow-xl rounded-md">
@@ -24,7 +24,7 @@ const ServiceCard = ({ service }) => {
                         :
                         <p>{details}</p>
                 }
-
+                <h2 className="text-lg font-medium text-white">Price: ${price}</h2>
                 <div className="card-actions justify-center mt-2">
                     <Link to={`/service/${id}`} className="text-blue-600 font-semibold"><button className="btn btn-outline btn-info">Details</button></Link>
                 </div>

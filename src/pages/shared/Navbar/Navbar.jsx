@@ -30,8 +30,8 @@ const Navbar = () => {
 
         {
             user && <>
-                <li className='mr-1'> <NavLink to='/about'>Gallery</NavLink></li>
-                <li className='mr-1'> <NavLink to='/contact'>Report</NavLink></li>
+                <li className='mr-1'> <NavLink to='/gallery'>Gallery</NavLink></li>
+                <li className='mr-1'> <NavLink to='/report'>Report</NavLink></li>
             </>
         }
 
@@ -70,12 +70,12 @@ const Navbar = () => {
                                     <img src={logo} />
                                 </div>
                             </label>
-                            <button onClick={handleSignOut} className='btn'>Logout</button>
+                            <button onClick={handleSignOut} className='btn btn-outline btn-error'>Logout</button>
 
                         </div>
                         :
                         <Link to='/login'>
-                            <button className='btn'>Login</button>
+                            <button className='btn btn-outline btn-info'>Login</button>
                         </Link>
 
                 }
