@@ -3,6 +3,7 @@ import Navbar from "../shared/Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from 'sweetalert';
+import Footer from "../shared/Footer/Footer";
 
 const Login = () => {
 
@@ -17,19 +18,19 @@ const Login = () => {
 
         // signin
         signIn(email, password)
-        .then(result =>{
-            console.log('login sucess', result);
-            swal("Login Success!", "", "success");
-        })
-        .catch(error =>{
-            console.log(error.message);
-            swal("Login Faild!", "Invalid Mail or Password", "error");
-        })
+            .then(result => {
+                console.log('login sucess', result);
+                swal("Login Success!", "", "success");
+            })
+            .catch(error => {
+                console.log(error.message);
+                swal("Login Faild!", "Invalid Mail or Password", "error");
+            })
     }
 
     return (
         <div>
-            <Navbar></Navbar>
+            
 
             <div className=" w-full md:w-2/3 lg:w-1/2 mx-auto p-10 border border-emerald-500 ">
                 <h2 className="text-xl font-semibold text-center">Please Login</h2>
@@ -56,7 +57,7 @@ const Login = () => {
                 </form>
                 <p className="text-center mt-3">Do not have an account? Please <Link className="text-blue-600 font-bold" to='/register'>Register</Link></p>
             </div>
-
+            
         </div>
     );
 };

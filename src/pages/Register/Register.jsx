@@ -3,6 +3,7 @@ import Navbar from "../shared/Navbar/Navbar";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from 'sweetalert';
+import Footer from "../shared/Footer/Footer";
 
 
 const Register = () => {
@@ -49,7 +50,7 @@ const Register = () => {
     return (
         <div>
 
-            <Navbar></Navbar>
+            
 
             <div className=" w-full md:w-2/3 lg:w-1/2 mx-auto p-10 border border-emerald-500 ">
                 <h2 className="text-xl font-semibold text-center">Please Register</h2>
@@ -82,6 +83,8 @@ const Register = () => {
                 </form>
                 <p className="text-center mt-3">Already have an account? Please <Link className="text-blue-600 font-bold" to='/login'>Login</Link></p>
             </div>
+
+           
 
         </div>
     );
