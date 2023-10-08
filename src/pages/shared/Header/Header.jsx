@@ -3,7 +3,7 @@
 
 const Header = () => {
     return (
-        <div className="hero min-h-[60vh] mt-10" style={{ backgroundImage: 'url(https://i.ibb.co/L9VHKL0/banner1.png)' }}>
+        <div className="hero min-h-[60vh] mb-10" style={{ backgroundImage: 'url(https://i.ibb.co/L9VHKL0/banner1.png)' }}>
             <div className="hero-overlay bg-opacity-60"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">

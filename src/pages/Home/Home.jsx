@@ -5,10 +5,10 @@ import Navbar from "../shared/Navbar/Navbar";
 const Home = () => {
     return (
         <div>
-            <Header></Header>
-            <Navbar></Navbar>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6"> 
+            <Navbar></Navbar>
+            <Header></Header>
+            <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-6">
                 <div className="col-span-1 border-double border-4 border-emerald-900 rounded-md">
                     <LeftSideNav></LeftSideNav>
                 </div>
