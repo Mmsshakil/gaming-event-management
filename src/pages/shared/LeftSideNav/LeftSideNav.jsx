@@ -5,8 +5,8 @@ const LeftSideNav = () => {
     return (
         <div>
 
-            <div className='p-4 mb-6  text-emerald-500'>
-                <h2 className="text-xl font-bold mb-2 text-white">Follow Us On</h2>
+            <div className='p-4 mt-0 lg:mt-20 lg:mb-6 border-double border-4 border-emerald-900 text-emerald-500'>
+                <h2 className='text-2xl font-bold text-white mb-3'>Follow Us On</h2>
                 <div className='p-4 border border-zinc-600 rounded-t-md'>
                     <a className="flex items-center gap-2" href='' >
                         <FaFacebookF></FaFacebookF>

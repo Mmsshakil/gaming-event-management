@@ -13,20 +13,27 @@ const Navbar = () => {
 
     const handleSignOut = () => {
         logOut()
-        .then(result =>{
-            console.log('logout success',result);
-            swal("Logout Success!", "", "success");
-        })
-        .catch(error =>{
-            console.log(error.message);
-        })
+            .then(result => {
+                console.log('logout success', result);
+                swal("Logout Success!", "", "success");
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     const navLink = <>
 
-        <li className='mr-2'> <NavLink to='/'>Home</NavLink></li>
-        <li className='mr-2'> <NavLink to='/about'>About</NavLink></li>
-        <li className='mr-2'> <NavLink to='/contact'>Contact</NavLink></li>
+        <li className='mr-1'> <NavLink to='/'>Home</NavLink></li>
+        <li className='mr-1'> <NavLink to='/about'>About</NavLink></li>
+        <li className='mr-1'> <NavLink to='/contact'>Contact</NavLink></li>
+
+        {
+            user && <>
+                <li className='mr-1'> <NavLink to='/about'>Gallery</NavLink></li>
+                <li className='mr-1'> <NavLink to='/contact'>Report</NavLink></li>
+            </>
+        }
 
 
     </>
@@ -40,6 +47,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLink}
+
                     </ul>
                 </div>
                 <div className='w-16 lg:w-28'>
@@ -49,6 +57,7 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     {navLink}
+
                 </ul>
             </div>
 
