@@ -2,8 +2,25 @@
 
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
+import swal from 'sweetalert';
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+
+    const handleSignOut = () => {
+        logOut()
+        .then(result =>{
+            console.log('logout success',result);
+            swal("Logout Success!", "", "success");
+        })
+        .catch(error =>{
+            console.log(error.message);
+        })
+    }
 
     const navLink = <>
 
@@ -34,15 +51,27 @@ const Navbar = () => {
                     {navLink}
                 </ul>
             </div>
+
             <div className="navbar-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                    <div className="w-10 rounded-full">
-                        <img src={logo} />
-                    </div>
-                </label>
-                <Link to='/login'>
-                    <button className='btn'>Login</button>
-                </Link>
+                {
+                    user ?
+                        <div className='flex '>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={logo} />
+                                </div>
+                            </label>
+                            <button onClick={handleSignOut} className='btn'>Logout</button>
+
+                        </div>
+                        :
+                        <Link to='/login'>
+                            <button className='btn'>Login</button>
+                        </Link>
+
+                }
+
+
 
             </div>
         </div>
