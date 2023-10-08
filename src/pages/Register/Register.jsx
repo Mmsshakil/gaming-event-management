@@ -28,7 +28,7 @@ const Register = () => {
         setRegisterError('');
 
         if (!passwordPattern.test(password)) {
-            setRegisterError('Password must be atleast 6 characters, a capital letter, a special character');
+            setRegisterError('Password  must be atleast 6 characters, a capital letter, a special character');
             // console.log('password wrong');
             return;
         }
