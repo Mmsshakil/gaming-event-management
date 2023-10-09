@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from 'sweetalert';
+import { updateProfile } from "firebase/auth";
 
 
 
@@ -44,6 +45,24 @@ const Register = () => {
             .then(result => {
                 console.log('user create success', result);
                 swal("Success!", "You registration successful", "success");
+
+                // ------------ take user name and photo url from user-----------------
+
+                updateProfile(result.user,{
+                    displayName: name, 
+                    photoURL: photo
+                })
+                .then(res =>{
+                    console.log(res);
+                })
+                .catch(error =>{
+                    console.log(error.message);
+                })
+
+
+
+                // --------------------------------------------------------------------
+
                 navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
