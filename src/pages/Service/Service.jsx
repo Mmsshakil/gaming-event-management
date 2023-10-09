@@ -14,7 +14,7 @@ const Service = () => {
 
     // console.log(id);
     // const job = Details.find(job => job.id === idInt)
-    const detailService = Details.find(detailService => detailService.id === id)
+    const detailService = Details?.find(detailService => detailService?.id === id)
     // console.log(detailService);
     // console.log(job)
 
@@ -30,13 +30,13 @@ const Service = () => {
                 <div className="md:col-span-3 lg:col-span-3  mx-auto w-3/4 mt-0 ">
 
                     <div>
-                        <img src={detailService.img} alt="" />
+                        <img src={detailService?.img} alt="" />
                     </div>
                     <div className="text-xl font-bold my-3 text-white">
-                        {detailService.title}
+                        {detailService?.title}
                     </div>
                     <div>
-                        {detailService.details}
+                        {detailService?.details}
                     </div>
                     <div className="my-3 font-bold text-lg text-white">
                         <h2>Price: ${detailService.price}</h2>

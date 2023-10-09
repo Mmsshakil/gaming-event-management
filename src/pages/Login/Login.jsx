@@ -1,17 +1,19 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc';
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from 'sweetalert';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 
 
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+
 
 const Login = () => {
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
 
+    
     const { signIn } = useContext(AuthContext);
 
     const navigate = useNavigate();
@@ -49,9 +51,10 @@ const Login = () => {
             .then(result => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
-                swal("Login Success!", "", "success");
                 //navigate after login
                 navigate(location?.state ? location.state : '/')
+                swal("Login Success!", "", "success");
+
             })
 
 

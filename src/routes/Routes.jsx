@@ -14,17 +14,20 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
-        errorElement: <Error></Error> ,
+        // errorElement: <Error></Error> ,
         children: [
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('./service.json')
+                // loader: () => fetch('./service.json')
+                loader: () => fetch('/public/service.json')
+
             },
             {
                 path: '/service/:id',
                 element: <PrivateRoute><Service></Service></PrivateRoute>,
-                loader: () => fetch('./service.json')
+                // loader: () => fetch('./service.json')
+                loader: () => fetch('/public/service.json')
             },
             {
                 path: '/login',
