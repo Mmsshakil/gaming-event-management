@@ -7,7 +7,7 @@ import swal from 'sweetalert';
 
 const Register = () => {
 
-    
+
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location);
@@ -43,12 +43,12 @@ const Register = () => {
             .then(result => {
                 console.log('user create success', result);
                 swal("Success!", "You registration successful", "success");
-                navigate(location?.state ? location.state : '/' );
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.log(error.message);
                 swal("Already have an account!", "Please login", "error");
-                navigate(location?.state ? location.state : '/login' );
+                navigate(location?.state ? location.state : '/login');
             })
 
 
@@ -57,7 +57,7 @@ const Register = () => {
     return (
         <div>
 
-            
+
 
             <div className=" w-full md:w-2/3 lg:w-1/2 mx-auto p-10 border border-emerald-500 ">
                 <h2 className="text-xl font-semibold text-center text-white">Please Register</h2>
@@ -77,6 +77,12 @@ const Register = () => {
                     </div>
                     <div className="form-control">
                         <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input type="text" name="photo" placeholder="Enter your photo url" className="input input-bordered" required />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
@@ -91,7 +97,7 @@ const Register = () => {
                 <p className="text-center mt-3">Already have an account? Please <Link className="text-blue-600 font-bold" to='/login'>Login</Link></p>
             </div>
 
-           
+
 
         </div>
     );
