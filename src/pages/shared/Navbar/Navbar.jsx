@@ -1,6 +1,6 @@
 
 
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
@@ -9,6 +9,9 @@ import swal from 'sweetalert';
 const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location);
 
 
     const handleSignOut = () => {
@@ -16,6 +19,7 @@ const Navbar = () => {
             .then(result => {
                 console.log('logout success', result);
                 swal("Logout Success!", "", "success");
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.log(error.message);
