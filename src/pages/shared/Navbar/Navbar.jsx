@@ -68,7 +68,7 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <div className='flex justify-center items-center gap-2 '>
+                        <div className='flex  justify-center items-center gap-2 '>
                             <div className=" flex justify-center items-center gap-2">
                                 <img className="w-10 rounded-full" src={user.photoURL} />
                                 <p className='text-xs lg:text-lg'>{user.displayName}</p>
