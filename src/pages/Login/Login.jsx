@@ -1,16 +1,52 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { FcGoogle } from 'react-icons/fc';
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import swal from 'sweetalert';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
+
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 const Login = () => {
 
     const { signIn } = useContext(AuthContext);
+
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location);
+
+
+// --------------------Google Login-----------------
+
+const handleGoogleSignIn = () => {
+    // console.log('google mama is coming')
+    signInWithPopup(auth, provider)
+
+        .then(result => {
+            const loggedInUser = result.user;
+            console.log(loggedInUser);
+            swal("Login Success!", "", "success");
+            //navigate after login
+            navigate(location?.state ? location.state : '/')
+        })
+
+
+        .catch(error => {
+            console.log('error' , error.message)
+            swal("Login Faild!", "Invalid Mail or Password", "error");
+        })
+
+}
+
+
+
+// -------------------------------------------------
+
+
+
 
     const handleLogin = e => {
         e.preventDefault();
@@ -24,7 +60,7 @@ const Login = () => {
             .then(result => {
                 console.log('login sucess', result);
                 swal("Login Success!", "", "success");
-                navigate(location?.state ? location.state : '/' );
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.log(error.message);
@@ -51,13 +87,19 @@ const Login = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name="password" placeholder="Enter your password" className="input input-bordered" required />
-                        
+
                     </div>
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Login</button>
                     </div>
                 </form>
                 <p className="text-center mt-3">Do not have an account? Please <Link className="text-blue-600 font-bold" to='/register'>Register</Link></p>
+                {/* google login */}
+                <div onClick={handleGoogleSignIn}  className="flex justify-center items-center border rounded-xl py-3 mt-3 font-semibold text-lg ">
+                        <FcGoogle></FcGoogle>
+                        <p className="ml-2">Login With Google</p>
+                </div>
+
             </div>
 
         </div>
