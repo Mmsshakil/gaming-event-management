@@ -64,12 +64,11 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ?
-                        <div className='flex '>
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                <div className="w-10 rounded-full">
-                                    <img src={logo} />
-                                </div>
-                            </label>
+                        <div className='flex justify-center items-center gap-2 '>
+                            <div className=" flex justify-center items-center gap-2">
+                                <img className="w-10 rounded-full" src={user.photoURL} />
+                                <p className='text-xs lg:text-lg'>{user.displayName}</p>
+                            </div>
                             <button onClick={handleSignOut} className='btn btn-outline btn-error'>Logout</button>
 
                         </div>

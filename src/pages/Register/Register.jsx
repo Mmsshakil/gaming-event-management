@@ -25,9 +25,10 @@ const Register = () => {
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const email = form.get('email');
+        const photo = form.get('photo');
         const password = form.get('password');
 
-        console.log(name, email, password);
+        console.log(name, email, photo, password);
 
         // reset error
         setRegisterError('');
